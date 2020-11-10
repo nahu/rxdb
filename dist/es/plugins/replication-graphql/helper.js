@@ -16,8 +16,7 @@ export function getDocFromPouchOrNull(collection, id) {
     open_revs: 'all'
   }).then(function (docData) {
     return docData[0]['ok'];
-  })["catch"](function (e) {
-    console.error(JSON.stringify(e));
+  })["catch"](function () {
     return null;
   });
 }

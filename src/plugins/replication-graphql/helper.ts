@@ -24,8 +24,7 @@ export function getDocFromPouchOrNull(
         .then(docData => {
             return docData[0]['ok'];
         })
-        .catch((e) => {
-            console.error(JSON.stringify(e));
+        .catch(() => {
             return null;
         });
 }
