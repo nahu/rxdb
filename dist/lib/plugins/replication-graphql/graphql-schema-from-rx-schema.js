@@ -41,7 +41,7 @@ function graphQLSchemaFromRxSchema(input) {
     var schema = collectionSettings.schema;
     var prefixes = collectionSettings.prefixes;
     var ucCollectionName = (0, _util.ucfirst)(collectionName);
-    var collectionNameInput = (0, _util.ucfirst)(collectionName) + 'Input'; // input
+    var collectionNameInput = (0, _util.ucfirst)(collectionName) + 'Input' + (collectionSettings.notNullInput ? '!' : ''); // input
 
     var inputSchema = stripKeysFromSchema(schema, collectionSettings.ignoreInputKeys);
     var inputGraphQL = (0, _getGraphqlFromJsonschema.getGraphqlFromJsonSchema)({

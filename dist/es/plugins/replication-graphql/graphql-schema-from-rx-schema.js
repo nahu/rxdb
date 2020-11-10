@@ -26,7 +26,7 @@ export function graphQLSchemaFromRxSchema(input) {
     var schema = collectionSettings.schema;
     var prefixes = collectionSettings.prefixes;
     var ucCollectionName = ucfirst(collectionName);
-    var collectionNameInput = ucfirst(collectionName) + 'Input'; // input
+    var collectionNameInput = ucfirst(collectionName) + 'Input' + (collectionSettings.notNullInput ? '!' : ''); // input
 
     var inputSchema = stripKeysFromSchema(schema, collectionSettings.ignoreInputKeys);
     var inputGraphQL = getGraphqlFromJsonSchema({

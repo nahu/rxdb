@@ -28,6 +28,7 @@ export type GraphQLSchemaFromRxSchemaInputSingleCollection = {
     ignoreOutputKeys?: string[];
     withRevisions?: boolean;
     prefixes?: Prefixes;
+    notNullInput?: boolean;
     subscriptionParams?: { [k: string]: GraphQLParamType }
 };
 
@@ -70,7 +71,7 @@ export function graphQLSchemaFromRxSchema(
         const schema = collectionSettings.schema;
         const prefixes: Prefixes = collectionSettings.prefixes as any;
         const ucCollectionName = ucfirst(collectionName);
-        const collectionNameInput = ucfirst(collectionName) + 'Input';
+        const collectionNameInput = ucfirst(collectionName) + 'Input' + (collectionSettings.notNullInput ? '!' : '');
 
         // input
         const inputSchema = stripKeysFromSchema(schema, collectionSettings.ignoreInputKeys as string[]);

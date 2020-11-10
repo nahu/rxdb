@@ -18,6 +18,7 @@ export declare type GraphQLSchemaFromRxSchemaInputSingleCollection = {
     ignoreOutputKeys?: string[];
     withRevisions?: boolean;
     prefixes?: Prefixes;
+    notNullInput?: boolean;
     subscriptionParams?: {
         [k: string]: GraphQLParamType;
     };
