@@ -19,12 +19,15 @@ export function getDocFromPouchOrNull(
     id: string
 ) {
     return collection.pouch.get(id, {
-        open_revs: true
+        open_revs: 'all'
     })
         .then(docData => {
-            return docData;
+            return docData[0]['ok'];
         })
-        .catch(() => null);
+        .catch((e) => {
+            console.error(JSON.stringify(e));
+            return null;
+        });
 }
 
 

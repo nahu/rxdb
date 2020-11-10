@@ -34,10 +34,11 @@ exports.DEFAULT_MODIFIER = DEFAULT_MODIFIER;
 
 function getDocFromPouchOrNull(collection, id) {
   return collection.pouch.get(id, {
-    open_revs: true
+    open_revs: 'all'
   }).then(function (docData) {
-    return docData;
-  })["catch"](function () {
+    return docData[0]['ok'];
+  })["catch"](function (e) {
+    console.error(JSON.stringify(e));
     return null;
   });
 }
