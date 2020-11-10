@@ -66,7 +66,7 @@ export function pushQueryBuilderFromRxSchema(
 
     const builder: RxGraphQLReplicationQueryBuilder = (doc: any) => {
         const query = '' +
-            'mutation Set' + ucCollectionName + '($' + collectionName + ': ' + ucCollectionName + 'Input) {\n' +
+            'mutation Set' + ucCollectionName + '($' + collectionName + ': ' + ucCollectionName + 'Input' + (input.notNullInput ? '!' : '') + ') {\n' +
             SPACING + queryName + '(' + collectionName + ': $' + collectionName + ') {\n' +
             SPACING + SPACING + input.deletedFlag + '\n' + // GraphQL enforces to return at least one field
             SPACING + '}\n' +

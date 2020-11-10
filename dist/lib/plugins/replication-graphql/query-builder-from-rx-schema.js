@@ -57,7 +57,7 @@ function pushQueryBuilderFromRxSchema(collectionName, input) {
   var builder = function builder(doc) {
     var _variables;
 
-    var query = '' + 'mutation Set' + ucCollectionName + '($' + collectionName + ': ' + ucCollectionName + 'Input) {\n' + _graphqlSchemaFromRxSchema.SPACING + queryName + '(' + collectionName + ': $' + collectionName + ') {\n' + _graphqlSchemaFromRxSchema.SPACING + _graphqlSchemaFromRxSchema.SPACING + input.deletedFlag + '\n' + // GraphQL enforces to return at least one field
+    var query = '' + 'mutation Set' + ucCollectionName + '($' + collectionName + ': ' + ucCollectionName + 'Input' + (input.notNullInput ? '!' : '') + ') {\n' + _graphqlSchemaFromRxSchema.SPACING + queryName + '(' + collectionName + ': $' + collectionName + ') {\n' + _graphqlSchemaFromRxSchema.SPACING + _graphqlSchemaFromRxSchema.SPACING + input.deletedFlag + '\n' + // GraphQL enforces to return at least one field
     _graphqlSchemaFromRxSchema.SPACING + '}\n' + '}';
     var sendDoc = {};
     Object.entries(doc).forEach(function (_ref) {
